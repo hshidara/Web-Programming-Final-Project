@@ -1,0 +1,39 @@
+<!doctype HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Building a Photo Collection from Flickr</title>
+    <link rel="stylesheet" type="text/css" href="buildCollection.css">
+  </head>
+  <body>
+
+    
+    <div id="heading">
+      <h1>BuildCollection</h1>
+    </div>
+    <div id="msg">
+        <p class="prompt">Enter keywords to search on Flickr.</p>
+        <p class="prompt">Click on an image to add to your collection.</p>
+    </div>
+    <div id="query">
+      <input id="keywordBox" type="text" placeholder="enter keyword">
+      <button onclick="gotKeyword()">Search</button>
+    </div>
+
+    <main>
+      <div id="photoDisplay">
+	<div id="react">
+	  Nothing yet - try searching!
+	</div>
+      </div>
+    </main>
+
+    <!-- React libraries -->
+    <script src="https://unpkg.com/react@15/dist/react.js"></script> 
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
+    <script src="buildCollection.js"></script>
+
+  </body>
+</html>

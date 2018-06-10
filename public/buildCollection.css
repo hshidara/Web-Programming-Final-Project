@@ -1,0 +1,71 @@
+body {
+    font-family: "Montserrat",sans-serif;
+    margin: 15px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: xx-large;
+    margin: 15px;
+}
+
+p.prompt {
+    margin: 2px;
+    margin-left: 15px;
+}
+
+h1, p.prompt {
+    font-style: oblique;
+    text-align: left;
+    color: #999;
+}
+
+div#query {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    margin: 15px;
+}
+
+/* nix that nasty blue halo */
+button:focus {
+    outline: none;
+}
+input:focus {
+    outline: none;
+}
+
+main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+div#photoDisplay {
+    width: 100%;
+    text-align: center; 
+}
+
+div.ImageStack {
+    margin: 10px;
+}
+
+div.tile {
+    overflow: hidden; 
+    display: block;
+}
+
+img {
+    margin: 10px;
+}
+
+img.selected {
+    border-style: solid;
+    border-width: 6px;
+    border-color: #33f;
+}
+
