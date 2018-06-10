@@ -18,10 +18,33 @@ function handler (request, response, url) {
     else { badQuery(response); }
 }
 
-function handleAddQuery (params, response) {
+//Problem #9 on practice final
 
-    // fill in contents here
+var img_ct = 0;
+function handleAddQuery (params, response) {
+    	console.log(params);
+	let cmdStr = ' INSERT OR REPLACE INTO photos VALUES ('+(img_ct++)+','+'"'+params[0].replace("?src=","") +'"'+','+'"'+ params[1].replace("tags=","") +'"'+') ';
+	console.log(cmdStr);
+	db.run(cmdStr,dbCallback);
+
+	// Callback checks error
+	function dbCallback(err) {
+	    if (err) {
+		console.log("Table creation error",err);
+	    } else {
+		console.log("query added");
+		dumpDB();
+	    }
+	}	
     
+}
+
+function dumpDB() {
+  db.all ( 'SELECT * FROM photos', dataCallback);
+      function dataCallback( err, data ) {
+                console.log(data);
+      		db.close();
+      }
 }
 
 // answer a tag query by getting answer from flickr API

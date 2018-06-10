@@ -98,9 +98,8 @@ class ImageStack extends React.Component {
 	    photoObjs[photoIndex].selected = true;
 	}
 	this.setState({photos: photoObjs});
-
 	// Point D
-	
+	addPhotoAJAX(photoObjs[photoIndex].src);
     }
 
     replyFromServer() {
@@ -111,7 +110,6 @@ class ImageStack extends React.Component {
 	var elementArray = [];
 
 	// Point E
-	
 	for (let i=0; i<this.state.photos.length; i++) {
 	    elementArray.push(
 		React.createElement(Tile,
@@ -131,9 +129,19 @@ class ImageStack extends React.Component {
     } // render
 } // class
 
+// Problem #11
+function addPhotoAJAX (src) {
+	console.log(src);
+	var oReq = new XMLHttpRequest();
+	var tags = encodeURIComponent(document.getElementById("keywordBox").value);
 
-function addPhotoAJAX ( /* args? */ ) {
+	var url = "query?src=" + src.replace("https://","") + "&" + "tags=" + tags;
+	console.log(url);
+	oReq.open("GET",url);
+	oReq.addEventListener("load", reqListener);
+	oReq.send();
 
-    // need code here
-
+        function reqListener(){
+		console.log("AJAX complete");	
+        }
 }

@@ -10,10 +10,11 @@ var webServer = http.createServer(handler);
 var fileServer = new static.Server('./public');
 
 // And start listening for the arrival of http requests
-webServer.listen(/* your port number */);
+webServer.listen(57987);
 
 // called on http request arrival event
 function handler (request, response) {
+//    var fileServer = new static.Server('./public');
 
     // wait for end of request
     request.addListener('end', function () {
